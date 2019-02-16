@@ -117,7 +117,7 @@ class ChildOfFilter(BaseFilterBackend):
             except (ValueError, AssertionError):
                 raise BadRequestError("child_of must be a positive integer")
 
-            site_pages = pages_for_site(request.site)
+            site_pages = pages_for_site(request.wagtailsite)
             try:
                 parent_page = site_pages.get(id=parent_page_id)
                 queryset = queryset.child_of(parent_page)
@@ -140,7 +140,7 @@ class DescendantOfFilter(BaseFilterBackend):
             except (ValueError, AssertionError):
                 raise BadRequestError("descendant_of must be a positive integer")
 
-            site_pages = pages_for_site(request.site)
+            site_pages = pages_for_site(request.wagtailsite)
             try:
                 ancestor_page = site_pages.get(id=ancestor_page_id)
                 return queryset.descendant_of(ancestor_page)

@@ -31,7 +31,7 @@ class TemplateTestCase(TestCase, WagtailTestUtils):
         if site is None:
             site = self.default_site
         request = self.client.get('/test/', HTTP_HOST=site.hostname)
-        request.site = site
+        request.wagtailsite = site
         return request
 
     def render(self, request, string, context=None, site=None):
@@ -173,7 +173,7 @@ class TestSettingsJinja(TemplateTestCase):
                 site = Site.objects.get(is_default_site=True)
 
             request = self.client.get('/test/', HTTP_HOST=site.hostname)
-            request.site = site
+            request.wagtailsite = site
             context['request'] = request
 
         template = self.engine.from_string(string)
@@ -220,7 +220,7 @@ class TestSettingsJinja(TemplateTestCase):
         # site, dummy request
         site = Site.objects.get(is_default_site=True)
         request = self.client.get('/test/', HTTP_HOST=site.hostname)
-        request.site = site
+        request.wagtailsite = site
 
         for i in range(1, 4):
             with self.assertNumQueries(1):

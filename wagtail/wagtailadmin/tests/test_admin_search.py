@@ -19,14 +19,14 @@ class BaseSearchAreaTestCase(WagtailTestUtils, TestCase):
     def search_other(self, current_url='/admin/', data=None):
         request = self.rf.get(current_url, data=data)
         request.user = self.user
-        request.site = Site.objects.get()
+        request.wagtailsite = Site.objects.get()
         template = Template("{% load wagtailadmin_tags %}{% search_other %}")
         return template.render(Context({'request': request}))
 
     def menu_search(self, current_url='/admin/', data=None):
         request = self.rf.get(current_url, data=data)
         request.user = self.user
-        request.site = Site.objects.get()
+        request.wagtailsite = Site.objects.get()
         template = Template("{% load wagtailadmin_tags %}{% menu_search %}")
         return template.render(Context({'request': request}))
 

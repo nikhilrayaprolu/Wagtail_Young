@@ -31,7 +31,7 @@ class TestCoreJinja(TestCase):
         site = Site.objects.get(is_default_site=True)
 
         request = self.client.get('/')
-        request.site = site
+        request.wagtailsite = site
         request.user = user or AnonymousUser()
         return request
 

@@ -87,7 +87,7 @@ class TestPagesSummary(TestCase, WagtailTestUtils):
 
     def test_page_summary_single_site(self):
         request = self.get_request()
-        root_page = request.site.root_page
+        root_page = request.wagtailsite.root_page
         link = '<a href="{}">'.format(reverse('wagtailadmin_explore', args=[root_page.pk]))
         page_summary = PagesSummaryItem(request)
         self.assertIn(link, page_summary.render())

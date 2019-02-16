@@ -161,10 +161,10 @@ class RestrictedChildOfFilter(ChildOfFilter):
     site to be specified.
     """
     def get_root_page(self, request):
-        return request.site.root_page
+        return request.wagtailsite.root_page
 
     def get_page_by_id(self, request, page_id):
-        site_pages = pages_for_site(request.site)
+        site_pages = pages_for_site(request.wagtailsite)
         return site_pages.get(id=page_id)
 
 
@@ -207,8 +207,8 @@ class RestrictedDescendantOfFilter(DescendantOfFilter):
     site to be specified.
     """
     def get_root_page(self, request):
-        return request.site.root_page
+        return request.wagtailsite.root_page
 
     def get_page_by_id(self, request, page_id):
-        site_pages = pages_for_site(request.site)
+        site_pages = pages_for_site(request.wagtailsite)
         return site_pages.get(id=page_id)

@@ -24,7 +24,7 @@ class TestUserbarTag(TestCase):
     def dummy_request(self, user=None):
         request = RequestFactory().get('/')
         request.user = user or AnonymousUser()
-        request.site = Site.objects.first()
+        request.wagtailsite = Site.objects.first()
         return request
 
     def test_userbar_tag(self):

@@ -11,7 +11,7 @@ class BadRequestError(Exception):
 
 
 def get_base_url(request=None):
-    base_url = getattr(settings, 'WAGTAILAPI_BASE_URL', request.site.root_url if request else None)
+    base_url = getattr(settings, 'WAGTAILAPI_BASE_URL', request.wagtailsite.root_url if request else None)
 
     if base_url:
         # We only want the scheme and netloc

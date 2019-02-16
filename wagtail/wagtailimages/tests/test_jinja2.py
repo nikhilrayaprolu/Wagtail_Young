@@ -43,7 +43,7 @@ class TestImagesJinja(TestCase):
         if request_context:
             site = Site.objects.get(is_default_site=True)
             request = self.client.get('/test/', HTTP_HOST=site.hostname)
-            request.site = site
+            request.wagtailsite = site
             context['request'] = request
 
         template = self.engine.from_string(string)

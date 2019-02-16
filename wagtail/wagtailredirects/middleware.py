@@ -19,10 +19,10 @@ def _get_redirect(request, path):
         return None
 
     try:
-        return models.Redirect.get_for_site(request.site).get(old_path=path)
+        return models.Redirect.get_for_site(request.wagtailsite).get(old_path=path)
     except models.Redirect.MultipleObjectsReturned:
         # We have a site-specific and a site-ambivalent redirect; prefer the specific one
-        return models.Redirect.objects.get(site=request.site, old_path=path)
+        return models.Redirect.objects.get(site=request.wagtailsite, old_path=path)
     except models.Redirect.DoesNotExist:
         return None
 
