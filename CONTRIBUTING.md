@@ -6,6 +6,7 @@ We welcome all support, whether on bug reports, code, design, reviews, tests,
 documentation, translations or just feature requests.
 
 ## Using the issue tracker
+tactic
 
 The [issue tracker](https://github.com/wagtail/wagtail/issues) is
 the preferred channel for [bug reports](#bugs), [features requests](#features)
